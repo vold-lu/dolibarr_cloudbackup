@@ -88,8 +88,7 @@ class CloudBackupCron
 		$archivePath = $conf->admin->dir_output . '/documents/' . $archiveName;
 
 		// We also exclude '/temp/' dir and 'documents/admin/documents'
-		$cmd = "tar -czf " . $archivePath . " --exclude-vcs --exclude 'temp' --exclude 'dolibarr.log' --exclude 'dolibarr_*.log' --exclude 'documents/admin/documents' -C " . dirname(DOL_DATA_ROOT) . " " . basename(DOL_DATA_ROOT);
-
+		$cmd = "tar -czf " . $archivePath . " --exclude-vcs --exclude 'temp' --exclude 'dolibarr.log' --exclude 'dolibarr_*.log' --exclude 'admin/documents' -C " . dirname(DOL_DATA_ROOT) . " " . basename(DOL_DATA_ROOT);
 		$result = $utils->executeCLI($cmd, $conf->admin->dir_temp . '/out.tmp');
 
 		if ($result['result'] || !empty($retval)) {
