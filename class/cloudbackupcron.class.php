@@ -27,6 +27,15 @@ class CloudBackupCron
 	{
 		global $conf, $dolibarr_main_db_name;
 
+		// Validate required configuration is present
+		$config = ['CLOUDBACKUP_S3_REGION', 'CLOUDBACKUP_S3_ACCESS_KEY', 'CLOUDBACKUP_S3_SECRET_KEY', 'CLOUDBACKUP_S3_BUCKET'];
+		foreach ($config as $key) {
+			if (empty($conf->$key)) {
+				$this->error = sprintf('Configuration %s is required.', $key);
+				return -1;
+			}
+		}
+
 		// Create backup of the database
 		$utils = new Utils($this->db);
 		if ($utils->dumpDatabase('gz') < 0) {
