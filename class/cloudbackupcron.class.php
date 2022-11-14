@@ -61,11 +61,16 @@ class CloudBackupCron
 			]
 		]);
 
-		$result = $s3->putObject([
-			'Bucket' => $conf->global->CLOUDBACKUP_S3_BUCKET,
-			'Key' => basename($ret),
-			'SourceFile' => $ret,
-		]);
+		try {
+			$s3->putObject([
+				'Bucket' => $conf->global->CLOUDBACKUP_S3_BUCKET,
+				'Key' => basename($ret),
+				'SourceFile' => $ret,
+			]);
+		} catch (Exception $e) {
+			$this->error = $e->getMessage();
+			return -1;
+		}
 
 		return 0;
 	}
