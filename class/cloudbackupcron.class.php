@@ -33,7 +33,9 @@ class CloudBackupCron
 			return -1;
 		}
 
-		if ($this->dumpDocuments($utils, $conf, $dolibarr_main_db_name) < 0) {
+		// Create backup of documents folder (database backup will be included)
+		$ret = $this->dumpDocuments($utils, $conf, $dolibarr_main_db_name);
+		if (is_integer($ret)) {
 			return -1;
 		}
 
@@ -44,7 +46,7 @@ class CloudBackupCron
 	 * @param Utils $utils
 	 * @param Conf $conf
 	 * @param string $db_name
-	 * @return int
+	 * @return int|string
 	 */
 	private function dumpDocuments($utils, $conf, $db_name)
 	{
@@ -63,6 +65,6 @@ class CloudBackupCron
 			return -1;
 		}
 
-		return 0;
+		return $archivePath;
 	}
 }
