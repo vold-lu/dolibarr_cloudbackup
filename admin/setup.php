@@ -75,14 +75,10 @@ $scandir = GETPOST('scan_dir', 'alpha');
 $type = 'myobject';
 
 $arrayofparameters = array(
-	'CLOUDBACKUP_MYPARAM1'=>array('type'=>'string', 'css'=>'minwidth500' ,'enabled'=>1),
-	'CLOUDBACKUP_MYPARAM2'=>array('type'=>'textarea','enabled'=>1),
-	//'CLOUDBACKUP_MYPARAM3'=>array('type'=>'category:'.Categorie::TYPE_CUSTOMER, 'enabled'=>1),
-	//'CLOUDBACKUP_MYPARAM4'=>array('type'=>'emailtemplate:thirdparty', 'enabled'=>1),
-	//'CLOUDBACKUP_MYPARAM5'=>array('type'=>'yesno', 'enabled'=>1),
-	//'CLOUDBACKUP_MYPARAM5'=>array('type'=>'thirdparty_type', 'enabled'=>1),
-	//'CLOUDBACKUP_MYPARAM6'=>array('type'=>'securekey', 'enabled'=>1),
-	//'CLOUDBACKUP_MYPARAM7'=>array('type'=>'product', 'enabled'=>1),
+	'CLOUDBACKUP_S3_REGION'=>array('type'=>'string', 'css'=>'minwidth500' ,'enabled'=>1),
+	'CLOUDBACKUP_S3_ACCESS_KEY'=>array('type'=>'string', 'css'=>'minwidth500' ,'enabled'=>1),
+	'CLOUDBACKUP_S3_SECRET_KEY'=>array('type'=>'string', 'css'=>'minwidth500' ,'enabled'=>1),
+	'CLOUDBACKUP_S3_BUCKET'=>array('type'=>'string', 'css'=>'minwidth500' ,'enabled'=>1),
 );
 
 $error = 0;
