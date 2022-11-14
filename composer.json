@@ -1,0 +1,10 @@
+{
+    "name": "vold/cloudbackup",
+    "authors": [
+        {
+            "name": "Aloïs Micard",
+            "email": "a.micard@vold.lu"
+        }
+    ],
+    "require": {}
+}
