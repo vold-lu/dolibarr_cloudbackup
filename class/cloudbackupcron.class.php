@@ -28,9 +28,9 @@ class CloudBackupCron
 		global $conf, $dolibarr_main_db_name;
 
 		// Validate required configuration is present
-		$config = ['CLOUDBACKUP_S3_REGION', 'CLOUDBACKUP_S3_ACCESS_KEY', 'CLOUDBACKUP_S3_SECRET_KEY', 'CLOUDBACKUP_S3_BUCKET'];
+		$config = ['CLOUDBACKUP_S3_ENDPOINT', 'CLOUDBACKUP_S3_REGION', 'CLOUDBACKUP_S3_ACCESS_KEY', 'CLOUDBACKUP_S3_SECRET_KEY', 'CLOUDBACKUP_S3_BUCKET'];
 		foreach ($config as $key) {
-			if (empty($conf->$key)) {
+			if (empty($conf->global->$key)) {
 				$this->error = sprintf('Configuration %s is required.', $key);
 				return -1;
 			}
@@ -51,6 +51,8 @@ class CloudBackupCron
 
 		// Finally, upload the document on the S3 bucket
 		$s3 = new Aws\S3\S3Client([
+			'endpoint' => $conf->global->CLOUDBACKUP_S3_ENDPOINT,
+			'bucket_endpoint' => true,
 			'region' => $conf->global->CLOUDBACKUP_S3_REGION,
 			'version' => 'latest',
 			'credentials' => [
