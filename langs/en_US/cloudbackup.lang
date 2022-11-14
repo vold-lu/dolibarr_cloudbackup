@@ -1,0 +1,25 @@
+#
+# Generic
+#
+
+ModuleCloudBackupName = CloudBackup
+ModuleCloudBackupDesc = Backup your Dolibarr database and documents to the cloud.
+
+#
+# Admin page
+#
+CloudBackupSetup = CloudBackup setup
+Settings = Settings
+CloudBackupSetupPage = CloudBackup setup page
+CLOUDBACKUP_MYPARAM1 = My param 1
+CLOUDBACKUP_MYPARAM1Tooltip = My param 1 tooltip
+CLOUDBACKUP_MYPARAM2=My param 2
+CLOUDBACKUP_MYPARAM2Tooltip=My param 2 tooltip
+
+
+#
+# About page
+#
+About = About
+CloudBackupAbout = About CloudBackup
+CloudBackupAboutPage = CloudBackup about page
