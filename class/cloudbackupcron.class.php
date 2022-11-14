@@ -1,6 +1,7 @@
 <?php
 
 require_once DOL_DOCUMENT_ROOT . '/core/class/utils.class.php';
+require_once DOL_DOCUMENT_ROOT . '/custom/cloudbackup/vendor/autoload.php';
 
 class CloudBackupCron
 {
@@ -38,6 +39,22 @@ class CloudBackupCron
 		if (is_integer($ret)) {
 			return -1;
 		}
+
+		// Finally, upload the document on the S3 bucket
+		$s3 = new Aws\S3\S3Client([
+			'region' => $conf->global->CLOUDBACKUP_S3_REGION,
+			'version' => 'latest',
+			'credentials' => [
+				'key' => $conf->global->CLOUDBACKUP_S3_ACCESS_KEY,
+				'secret' => $conf->global->CLOUDBACKUP_S3_SECRET_KEY,
+			]
+		]);
+
+		$result = $s3->putObject([
+			'Bucket' => $conf->global->CLOUDBACKUP_S3_BUCKET,
+			'Key' => basename($ret),
+			'SourceFile' => $ret,
+		]);
 
 		return 0;
 	}
