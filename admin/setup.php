@@ -82,7 +82,7 @@ $arrayofparameters = array(
 	'CLOUDBACKUP_S3_ENDPOINT' => array('type' => 'string', 'css' => 'minwidth500', 'enabled' => 1),
 	'CLOUDBACKUP_S3_REGION' => array('type' => 'string', 'css' => 'minwidth500', 'enabled' => 1),
 	'CLOUDBACKUP_S3_ACCESS_KEY' => array('type' => 'string', 'css' => 'minwidth500', 'enabled' => 1),
-	'CLOUDBACKUP_S3_SECRET_KEY' => array('type' => 'string', 'css' => 'minwidth500', 'enabled' => 1),
+	'CLOUDBACKUP_S3_SECRET_KEY' => array('type' => 'password', 'css' => 'minwidth500', 'enabled' => 1),
 	'CLOUDBACKUP_S3_BUCKET' => array('type' => 'string', 'css' => 'minwidth500', 'enabled' => 1),
 );
 
@@ -382,6 +382,8 @@ if ($action == 'edit') {
 					} elseif ($resprod < 0) {
 						setEventMessages(null, $object->errors, "errors");
 					}
+				} elseif ($val['type'] == 'password') {
+					print '*******';
 				} else {
 					print $conf->global->{$constname};
 				}
