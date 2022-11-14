@@ -147,7 +147,7 @@ class modCloudBackup extends DolibarrModules
 		// Cronjobs (List of cron jobs entries to add when module is enabled)
 		$this->cronjobs = array(
 			array(
-				'label' => 'Backup Dolibarr instance',
+				'label' => 'Backup Dolibarr instance to the cloud',
 				'jobtype' => 'method',
 				'class' => '/cloudbackup/class/cloudbackupcron.class.php',
 				'objectname' => 'CloudBackupCron',
