@@ -6,5 +6,7 @@
             "email": "a.micard@vold.lu"
         }
     ],
-    "require": {}
+    "require": {
+        "aws/aws-sdk-php": "^3.242"
+    }
 }
