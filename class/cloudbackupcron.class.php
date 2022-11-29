@@ -61,10 +61,13 @@ class CloudBackupCron
 			]
 		]);
 
+		// Get current date
+		$dateTime = new DateTimeImmutable();
+
 		try {
 			$s3->putObject([
 				'Bucket' => $conf->global->CLOUDBACKUP_S3_BUCKET,
-				'Key' => basename($ret),
+				'Key' => sprintf('%s/%s/%s', $dateTime->format('Y'), $dateTime->format('m'), basename($ret)),
 				'SourceFile' => $ret,
 			]);
 		} catch (Exception $e) {
