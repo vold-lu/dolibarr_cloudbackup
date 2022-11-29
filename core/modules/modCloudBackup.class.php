@@ -56,7 +56,7 @@ class modCloudBackup extends DolibarrModules
 		$this->editor_name = 'VOLD';
 		$this->editor_url = 'https://vold.lu';
 
-		$this->version = '0.1.1';
+		$this->version = '0.1.2';
 		$this->const_name = 'MAIN_MODULE_'.strtoupper($this->name);
 
 		$this->picto = 'generic';
