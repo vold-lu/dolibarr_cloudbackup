@@ -1,5 +1,5 @@
 <?php
-/* Copyright (C) 2022 Alice Adminson <aadminson@example.com>
+/* Copyright (C) 2022 Aloïs Micard <a.micard@vold.lu>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
